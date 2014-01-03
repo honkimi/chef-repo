@@ -1,0 +1,28 @@
+{
+  "locale": {
+    "lang": "ja_JP.utf8"
+  },
+  "nginx": {
+    "version": "1.5.8",
+    "dir"    : "/usr/local/nginx",
+    "log_dir": "/var/log/nginx"
+  },
+  "mongodb": {
+    "dbpath" : "/data/db/",
+    "port"   : 27017,
+    "logpath": "/var/log/mongodb",
+    "package_name": "mongo-10gen-server"
+  },
+  "run_list":[
+    "sudo",
+    "myrecipe::user",
+    "myrecipe::build-essential",
+    "simple_iptables",
+    "myrecipe::iptables",
+    "nginx::source",
+    "myrecipe::rbenv",
+    "mongodb::10gen_repo",
+    "mongodb",
+    "myrecipe::app_env"
+  ]
+}
